@@ -12,6 +12,7 @@ function generateGrid(rows, cols) {
   gridContainer.style.gridTemplateColumns = `repeat(${cols}, ${squareSize}%)`;
   gridContainer.style.gridTemplateRows = `repeat(${rows}, ${squareSize}%)`;
   gridContainer.innerHTML = ''; // Clear existing squares
+
   for (let i = 0; i < rows * cols; i++) {
     let square = document.createElement('div');
     square.classList.add('square');
@@ -31,28 +32,47 @@ function generateGrid(rows, cols) {
     });
     square.addEventListener("mouseup", function () {
       isMouseDown = false;
-    })
+    })  
   })
 };
 
-
-// Call the function with desired rows and columns
-let rows = 40; // Adjust number of rows as needed
-let cols = 40; // Adjust number of columns as needed
-generateGrid(rows, cols);
-
+// Default grid
+const defaultRows = 12;
+const defaultCols = 12;
+generateGrid(defaultRows, defaultCols);
 
 
-  const scaleUp = document.querySelector(".button1");
-  scaleUp.addEventListener("click", () => {
-    let rows = 10;
-    let cols = 10;
-    generateGrid(rows, cols); // Call the generateGrid function with the updated rows and cols values
+let savedRows = defaultRows;
+let savedCols = defaultCols;
+
+generateGrid(savedRows, savedCols);
+
+let reset_btn = document.querySelector(".reset-button");
+reset_btn.addEventListener("click", () => {
+  if (savedRows === defaultRows && savedCols === defaultCols) {
+    // reset to default size
+    generateGrid(defaultRows, defaultCols);
+  } else {
+    // reset to current size
+    generateGrid(savedRows, savedCols);
+  }
+});
+
+let select = document.querySelectorAll("select");
+select.forEach(select => {
+  select.addEventListener("change", () => {
+    savedRows = parseInt(select.value);
+    savedCols = parseInt(select.value);
+    generateGrid(savedRows, savedCols);
   });
+});
 
 
 // Primary paint function
 function paint(square) {
   square.style.backgroundColor = "blue";
 }
+
+
+
 
