@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,27 +8,38 @@
     <title>Retro Sketch</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-    
+
     <div class="flex-container">
-        
-        <div class="menu-container">Retro Sketch
-            
-            <select name="grid-selector" class="grid-selector">
-                <option value="12" class="twelve-sq">12x12</option>
-                <option value="24" class="twenties-sq">24x24</option>
-                <option value="36" class="thirties-sq">36x36</option>
-                <option value="48" class="fourties-sq">48x48</option>
-                <option value="60" class="sixties-sq">60x60</option>
-            </select>
-            <button class="reset-button">Reset</button>
+
+        <div class="menu-container">
+            <h1 class="dreams">Retro Sketch</h1>
         </div>
 
-    <div class="grid-wrapper">
-        <div class="grid-container"></div>
-      </div>
-      </div>
+        <div class="grid-wrapper">
+            <div class="grid-options">
+                <p>Select Grid Size</p>
+                <select name="grid-selector" class="grid-selector">
+                    <option value="12" class="twelve-sq">12x12</option>
+                    <option value="24" class="twenties-sq">24x24</option>
+                    <option value="36" class="thirties-sq">36x36</option>
+                    <option value="48" class="fourties-sq">48x48</option>
+                    <option value="60" class="sixties-sq">60x60</option>
+                </select>
+                <button class="reset-button">Reset</button>
+                <button class="toggle-button">Toggle Grid</button>
+                <p>Select a Color</p>
+                <input type="color" class="color-picker">
+            </div>
+
+            <div class="grid-container"></div>
+        </div>
+    </div>
 
     <script src="app.js"></script>
 </body>
+
+<footer>Copyright &copy; Pablo Garcia 2023.</footer>
+
 </html>
